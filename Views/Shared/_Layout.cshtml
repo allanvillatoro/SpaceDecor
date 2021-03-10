@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Space Decor</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <header>
+
+
+        <nav class="navbar navbar-expand-lg" style="background-color:beige">
+            <div class="container-fluid">
+                <img style="margin-right:40px;" src="https://lh3.googleusercontent.com/proxy/0cVnlh1SS4feUn7xZB5IB5xbg6X7OIbpw2ztYiZ_0My2Tz-M27rwxuQRX_XL1RLAFX_9pCDGMcJWDsGIkV8pcuJ5xYh-4Z9h2WCfJweEGMsxQyDjd0Jii7OptUKQCw" alt="Logo" width="30" height="24" class="d-inline-block align-top">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Catalogo" asp-action="Index">Catálogo</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Catalogo" asp-action="Index">A medida</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="" asp-action="Index">Conócenos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Contactos" asp-action="Create">Contáctanos</a>
+                        </li>
+                        <li class="nav-item" style="margin-left:380px;">
+                            <a class="navbar-brand" asp-area="" asp-controller="Login" asp-action="Login">
+                                <img src="https://us.123rf.com/450wm/martialred/martialred1507/martialred150700668/42613348-cuenta-de-usuario-icono-plana-para-aplicaciones-y-sitios-web.jpg?ver=6" alt="Login" width="30" height="24">
+                            </a>
+                        </li>
+                        <li class="nav-item" >
+                            <a class="navbar-brand" href="#">
+                                <img src="https://i.pinimg.com/564x/50/34/b4/5034b488f0f1c3ac51735aae1b00337b.jpg" alt="Instagram" width="30" height="24">
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="navbar-brand" href="#">
+                                <img src="https://i.pinimg.com/736x/3f/f6/5b/3ff65bbd9723a0a47c5106276e42b4dc.jpg" alt="Facebook" width="30" height="24">
+                            </a>
+                        </li>
+
+                    </ul>
+                    <form class="d-flex">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2021 - ProyectoFinal - <a asp-area="" asp-controller="Home" asp-action="Privacy"></a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

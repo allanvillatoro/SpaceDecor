@@ -1,0 +1,26 @@
+﻿@model ProyectoFinal.Models.User;
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="card col-xl-8 p-4 m-auto">
+            <form role="form" asp-action="Login">
+                <div class="form-group">
+                    <label asp-for="mail">Ingrese correo electrónico</label>
+                    <input asp-for="mail" type="text" class="form-control mt-2" id="inputUsernameEmail">
+                </div>
+                <div class="form-group mt-4">
+                    <label asp-for="password">Contraseña</label>
+                    <input asp-for="password" class="form-control mt-2" id="inputPassword">
+                    <a class="pull-right" href="#">Forgot password?</a>
+                </div>
+
+                <button type="submit" value="Login" class="btn btn btn-primary mt-4 $blue-300">
+                    Iniciar sesión
+                </button>
+            </form>
+        </div>
+
+    </div>
+</div>
+
+@ViewBag.f;
