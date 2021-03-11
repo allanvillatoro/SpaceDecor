@@ -3,19 +3,22 @@
 }
 
 <div class="text-center">
-
-
     <div class="row" style="margin-top:100px; margin-bottom:30px;">
+        <div class="col-lg-1"></div>
         <div class="col-lg-4 col-sm-12">
-            <img style="width: 340px; height: 340px; " src="https://i.pinimg.com/564x/7a/eb/87/7aeb875504f0199ab03d77d2f2ffe055.jpg" alt="Fondo"></a>
+            <img style="width: 340px; height: 340px; " src="~/img/SillaLanding.png" alt="Fondo"></a>
         </div>
         <div class="col-lg-6 col-sm-12">
-            <h3 style="color:sienna; margin-top:22px"> Space Decor</h3>
-            <p style="color: sienna;font-size: 18px; ">
+            <h3 class="titulo mt-5"> Space Decor</h3>
+            <p class="desc">
                 En Space Decor puedes encontrar productos ya fabricados y al mismo tiempo puedes diseñarlo a tu gusto, con un tiempo de entrega menor al de un negocio tradicional.
             </p>
-            <a style="background-color:sienna; color:antiquewhite;" class="btn btn" asp-controller="" asp-action="">Catalogo</a>
-            <a style="background-color: sienna; color: antiquewhite;" class="btn btn-outline" asp-controller="" asp-action="">A medida</a>
+
+            <div class="float-right" >
+                <a class="btn btnMain" asp-controller="Catalogo" asp-action="Index">Catálogo</a>
+                <a class="btn btnSecu" asp-controller="" asp-action="">A medida</a>
+            </div>
+           
         </div>
     </div>
 

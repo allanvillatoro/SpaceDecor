@@ -59,6 +59,15 @@ namespace ProyectoFinal.Controllers
             }
             
         }
-         
+
+
+        [HttpGet]
+        public IActionResult Logout()
+        {
+            HttpContext.Session.Remove("id");
+            HttpContext.Session.Remove("name");
+            return RedirectToAction("Index", "Home");
+        }
+
     }
 }

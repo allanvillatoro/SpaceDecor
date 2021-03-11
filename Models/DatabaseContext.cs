@@ -12,9 +12,12 @@ namespace ProyectoFinal.Models
         //tablas
         public DbSet<Users> users { get; set;}
 
-        //conexión
-        public string connectionString = @"Data Source = (LocalDB)\MSSQLLocalDB;Initial Catalog = ProyectoDB; Integrated Security = True";
-        
+        //conexión Rachel
+        //public string connectionString = @"Data Source = (LocalDB)\MSSQLLocalDB;Initial Catalog = ProyectoDB; Integrated Security = True";
+
+        //Conexion Andres
+        public string connectionString = @"Data Source = localhost; Initial Catalog = SpaceDecor; Integrated Security=True;";
+
         protected override void OnConfiguring(DbContextOptionsBuilder options)=> options.UseSqlServer(connectionString);
 
 

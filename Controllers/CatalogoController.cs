@@ -17,12 +17,7 @@ namespace SpaceDecor.Controllers
             return View();
         }
 
-        [HttpGet]
-        public IActionResult Logout()
-        {
-            HttpContext.Session.Remove("name");
-            return RedirectToAction("Index", "Home");
-        }
+       
 
     }
 }
