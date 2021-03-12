@@ -22,14 +22,15 @@ namespace ProyectoFinal.Controllers
             List<User> lista = new List<User>();
             using (DatabaseContext db = new DatabaseContext())
             {
-                var consulta = from s in db.users
-                    where s.Mail == userLog.mail && s.Password == userLog.password
+                var consulta = from s in db.Users
+                    where s.Email == userLog.Email && s.Userpass == userLog.Password
                     select new User 
                     {
-                        id = s.id,
-                        mail = s.Mail,
-                        password = s.Password,
-                        name = s.Name
+                        id = s.idUsers,
+                        Email = s.Email,
+                        Password = s.Userpass,
+                        FirstName = s.FirstName,
+                        LastName = s.LastName
                     };
            
               lista = consulta.ToList();
@@ -43,8 +44,9 @@ namespace ProyectoFinal.Controllers
                 {
                     if (string.IsNullOrEmpty(HttpContext.Session.GetString("id")))
                     {
-                        HttpContext.Session.SetInt32("id", item.id);
-                        HttpContext.Session.SetString("name", item.name);
+                        HttpContext.Session.SetInt32("Id", item.id);
+                        HttpContext.Session.SetString("Name", item.FirstName);
+                        HttpContext.Session.SetString("LastName", item.LastName);
                     }
                 }
 
@@ -64,8 +66,9 @@ namespace ProyectoFinal.Controllers
         [HttpGet]
         public IActionResult Logout()
         {
-            HttpContext.Session.Remove("id");
-            HttpContext.Session.Remove("name");
+            HttpContext.Session.Remove("Id");
+            HttpContext.Session.Remove("Name");
+            HttpContext.Session.Remove("LastName");
             return RedirectToAction("Index", "Home");
         }
 

@@ -53,7 +53,7 @@
 
 
                         @{
-                            if (string.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("id")))
+                            if (string.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Id")))
                             {
                                 <li class="navbar-item">
                                     <a class="nav-link text-dark" asp-area="" asp-controller="Login" asp-action="Login">Login</a>
@@ -65,7 +65,8 @@
                                 <li class="navbar-item">
                                     <div class="dropdown">
                                         <button class="btn btn-secondary dropdown-toggle dropStyle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            @HttpContextAccessor.HttpContext.Session.GetString("name")
+                                            @HttpContextAccessor.HttpContext.Session.GetString("Name")
+                                            @HttpContextAccessor.HttpContext.Session.GetString("LastName")
                                         </button>
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                             <a class="dropdown-item" href="#">Configurar Cuenta</a>

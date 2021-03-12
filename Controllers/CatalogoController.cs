@@ -12,7 +12,7 @@ namespace SpaceDecor.Controllers
         public IActionResult Index()
         {
 
-            ViewBag.name = HttpContext.Session.GetString("name");
+            ViewBag.name = HttpContext.Session.GetString("Name")+" "+ HttpContext.Session.GetString("LastName");
 
             return View();
         }
