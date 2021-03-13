@@ -11,10 +11,11 @@ namespace ProyectoFinal.Models
     public class DatabaseContext : DbContext
     {
         //tablas
-        public DbSet<Users> Users { get; set;}
+        public DbSet<Users> Users { get; set; }
         public DbSet<Products> Products { get; set; }
         public DbSet<Orders> Orders { get; set; }
         public DbSet<CustomOrders> CustomOrders { get; set; }
+        public DbSet<ProductsImg> ProductsImg { get; set;}
 
         //conexión Rachel
         //public string connectionString = @"Data Source = (LocalDB)\MSSQLLocalDB;Initial Catalog = ProyectoDB; Integrated Security = True";
@@ -42,15 +43,17 @@ namespace ProyectoFinal.Models
     {
         [Key]
         public int idProducts { get; set; }
+        public string ProductName { get; set; }
         public string ProductDesc { get; set; }
-        public float Price { get; set; }
+        public string Marca { get; set; }
+        public double Price { get; set; }
         public string Color { get; set; }
         public string Dimensions { get; set; }
-        public string WoodType { get; set; }
+        public string Materials { get; set; }
         public string ProductType { get; set; }
-        public int Quantity { get; set; }
         public int StockQ { get; set; }
-        public string ImgUrl { get; set; }
+
+        public string Thumbnail { get; set; }
 
     }
 
@@ -63,6 +66,13 @@ namespace ProyectoFinal.Models
         public DateTime DateOrder { get; set; }
     }
 
+    public class ProductsImg
+    {
+        [Key]
+        public int idImage { get; set; }
+        public int idProducto { get; set; }
+        public string ImageUrl { get; set; }
+    }
 
     public class CustomOrders
     {
@@ -80,5 +90,8 @@ namespace ProyectoFinal.Models
         public string ImgUrl { get; set; }
 
     }
+
+
+    
 
 }

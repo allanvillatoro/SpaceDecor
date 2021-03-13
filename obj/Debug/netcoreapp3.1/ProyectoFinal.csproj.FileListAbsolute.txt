@@ -302,3 +302,4 @@ C:\Users\Andre\Documents\ProyectoFinal\obj\Debug\netcoreapp3.1\ProyectoFinal.csp
 C:\Users\Andre\Documents\ProyectoFinal\obj\Debug\netcoreapp3.1\ProyectoFinal.dll
 C:\Users\Andre\Documents\ProyectoFinal\obj\Debug\netcoreapp3.1\ProyectoFinal.pdb
 C:\Users\Andre\Documents\ProyectoFinal\obj\Debug\netcoreapp3.1\ProyectoFinal.genruntimeconfig.cache
+C:\Users\Andre\Documents\ProyectoFinal\obj\Debug\netcoreapp3.1\Razor\Views\Catalogo\Details.cshtml.g.cs

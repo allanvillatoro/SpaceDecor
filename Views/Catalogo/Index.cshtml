@@ -1,8 +1,41 @@
-﻿<h1>Catálogo aquí</h1>
+﻿@model IEnumerable<ProyectoFinal.Models.Product>
 
-<h1>
-    Bienvenido @ViewBag.name;
+<!--Index catálogo-->
 
-</h1>
+<div class="container mt-5 mb-5">
+    <div class="d-flex justify-content-center row">
+        <div class="col-md-10">
 
-<a asp-area="" asp-controller="Home" asp-action="Index"> Cerrar sesión</a>
+            <h2 class="mb-2">Nuestro Catálogo</h2>
+            <hr />
+
+            <!--Tarjeta de productos-->
+            @foreach (var item in Model)
+            {
+                <div class="row p-2 bg-white border rounded">
+                    <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image" src="@Html.DisplayFor(modelItem => item.Thumbnail)"></div>
+                    <div class="col-md-6 mt-1">
+                        <h5 mt-2> @Html.DisplayFor(modelItem => item.ProductName)</h5>
+                   
+                        <p class="text-justify para mb-0" style="font-size: 10px">
+                            @Html.DisplayFor(modelItem => item.ProductDesc)
+                        </p>
+                    </div>
+                    <div class="align-items-center align-content-center col-md-3 border-left mt-1">
+                        <div class="d-flex flex-row align-items-center">
+                            <h4 class="mr-1 h2">$@Html.DisplayFor(modelItem => item.Price)</h4><span class="strike-text"></span>
+                        </div>
+                        <div class="d-flex flex-column mt-4">
+                            
+                            @Html.ActionLink("Detalles", "Details", new { id = item.idProducts }, new {@class = "btn btnMain" })
+                            <a class="btn btnSecu" asp-controller="Catalogo" asp-action="Index">Añadir al carro</a>
+
+                        </div>
+                    </div>
+                </div>
+            }
+
+
+        </div>
+    </div>
+</div>

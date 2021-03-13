@@ -12,9 +12,6 @@
     font-weight: 500;
 }
 
-
-
-
 .titulo {
     font-size: 50px;
     text-align:right;
@@ -30,7 +27,7 @@
     color: #8E4A19;
 }
 
-.btnMain {
+.btnMainTi {
     background-color: #FFF3E2;
     padding: 10px 50px;
     color: #8E4A19;
@@ -40,13 +37,44 @@
   
 }
 
-
-.btnMain:hover {
+.btnMainTi:hover {
 background-color: #8E4A19;
 color: #FFF3E2;
 }
 
+.btnMain {
+    background-color: #FFF3E2;
+    padding: 10px 0px;
+    color: #8E4A19;
+    border-radius: 20px;
+    font-weight: 700;
+    margin: 10px;
+}
+
+.btnMain:hover {
+    background-color: #8E4A19;
+    color: #FFF3E2;
+}
+
+
 .btnSecu {
+    background-color: none;
+    padding: 10px 0px;
+    color: #8E4A19;
+    border-radius: 20px;
+    font-weight: 700;
+    border: 1px solid #8E4A19;
+    margin: 10px;
+}
+
+.btnSecu:hover {
+    color: #FFF3E2;
+    background-color: #8E4A19;
+}
+
+
+
+.btnSecuTi {
     background-color: none;
     padding: 10px 50px;
     color: #8E4A19;
@@ -55,7 +83,7 @@ color: #FFF3E2;
     border: 2px solid #8E4A19;
 }
 
-.btnSecu {
+.btnSecuTi:hover {
     background-color: #FFF3E2;
 }
 
@@ -75,3 +103,13 @@ color: #FFF3E2;
     background-color: #8E4A19;
     color: #FFF3E2;
 }
+
+
+/*Catalogo*/
+
+.strike-text {
+    color: red;
+    text-decoration: line-through
+}
+
+
