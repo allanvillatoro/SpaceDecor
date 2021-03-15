@@ -5,31 +5,35 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Formulario de Contacto</h1>
 
-<h4>Contacto</h4>
+
+<h4 style="color:sienna; margin-top:50px;">Formulario de Contacto</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="nombre" class="control-label"></label>
-                <input asp-for="nombre" class="form-control" />
+            <div class="form-group" style="width: 500px;">
+                <label style="color: sienna;font-size: 18px;" asp-for="nombre" class="control-label" for="exampleFormControlInput1">Nombre</label>
+                <input asp-for="nombre" type="text" class="form-control" id="exampleFormControlInput1" />
                 <span asp-validation-for="nombre" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="correo" class="control-label"></label>
-                <input asp-for="correo" class="form-control" />
+
+            <div class="form-group" style="width: 500px; margin-top: 30px;">
+                <label style=" color: sienna;font-size: 18px;" asp-for="correo" class="control-label" for="exampleFormControlInput1">Correo Electrónico</label>
+                <input asp-for="correo" type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" />
                 <span asp-validation-for="correo" class="text-danger"></span>
             </div>
+
             <div class="form-group">
-                <label asp-for="descripcion" class="control-label"></label>
-                <input asp-for="descripcion" class="form-control" />
+                <label style="color: sienna;font-size: 18px;" asp-for="descripcion" class="control-label" for="exampleFormControlTextarea1">Describir error encontrado</label>
+                <textarea style="width: 600px;" asp-for="descripcion" class="form-control" id="exampleFormControlTextarea1" rows="4"></textarea>
                 <span asp-validation-for="descripcion" class="text-danger"></span>
             </div>
+
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-secondary" />
+                <input type="submit" value="Enviar" class="btn btnMain" />
+                <a class="btn btnMain" asp-controller="Home" asp-action="Index">Regresar</a>
             </div>
         </form>
     </div>
