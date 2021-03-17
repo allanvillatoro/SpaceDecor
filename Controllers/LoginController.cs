@@ -30,7 +30,8 @@ namespace ProyectoFinal.Controllers
                         Email = s.Email,
                         Password = s.Userpass,
                         FirstName = s.FirstName,
-                        LastName = s.LastName
+                        LastName = s.LastName,
+                        Admin = s.UserAdmin                  
                     };
            
               lista = consulta.ToList();
@@ -47,6 +48,7 @@ namespace ProyectoFinal.Controllers
                         HttpContext.Session.SetInt32("Id", item.id);
                         HttpContext.Session.SetString("Name", item.FirstName);
                         HttpContext.Session.SetString("LastName", item.LastName);
+                        HttpContext.Session.SetInt32("Admin", item.Admin);
                     }
                 }
 
@@ -69,6 +71,7 @@ namespace ProyectoFinal.Controllers
             HttpContext.Session.Remove("Id");
             HttpContext.Session.Remove("Name");
             HttpContext.Session.Remove("LastName");
+            HttpContext.Session.Remove("Admin");
             return RedirectToAction("Index", "Home");
         }
 

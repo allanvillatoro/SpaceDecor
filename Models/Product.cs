@@ -1,7 +1,10 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Web;
+using System.IO;
 
 namespace ProyectoFinal.Models
 {
@@ -18,5 +21,8 @@ namespace ProyectoFinal.Models
         public string ProductType { get; set; }
         public int StockQ { get; set; }
         public string Thumbnail { get; set; }
+
+        public IFormFile image { get; set; }
     }
 }
+   

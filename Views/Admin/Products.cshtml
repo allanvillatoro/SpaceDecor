@@ -1,0 +1,97 @@
+﻿@model IEnumerable<ProyectoFinal.Models.Product>
+
+@{
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Products</title>
+</head>
+<body>
+
+<h3 class="text-dark mt-3">Productos</h3>
+<p>
+    <a asp-action="CreateProduct">Create New</a>
+</p>
+
+    <div class="container">
+        <div class="row">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.idProducts)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ProductName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Marca)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Price)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Color)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Dimensions)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Materials)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.StockQ)
+                        </th>
+                        
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.idProducts)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ProductName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Marca)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Price)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Color)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Dimensions)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Materials)
+                            </td>                   
+                            <td>
+                                @Html.DisplayFor(modelItem => item.StockQ)
+                            </td>
+                           
+                            <td>
+                                @Html.ActionLink("Editas", "Edit", new { id= item.idProducts })
+                                @Html.ActionLink("Detalles", "Details", new { id = item.idProducts }) 
+                                @Html.ActionLink("Eliminar ", "Delete", new { id = item.idProducts })
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+         
+</body>
+</html>
+
+

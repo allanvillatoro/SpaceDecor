@@ -3,7 +3,8 @@ CREATE TABLE Users (
 	FirstName varchar(80),
 	LastName varchar(80),
 	Email varchar(80),
-	UserPass varchar(50)
+	UserPass varchar(50),
+	UserAdmin int
 );
 
 CREATE TABLE Products(
@@ -49,7 +50,7 @@ CREATE TABLE CustomOrders(
 );
 
 
-INSERT INTO Users VALUES('Andrés', 'Díaz', 'andres@gmail.com', 'ad2001');
+INSERT INTO Users VALUES('Andrés', 'Díaz', 'andres@gmail.com', 'ad2001',1);
 
 INSERT INTO Products VALUES('Estantería de 4 niveles para oficina, baño, sala de estar',
 'Fácil de montar y limpiar: la estantería viene con instrucciones detalladas e ilustradas y piezas numeradas; todos los accesorios y herramientas necesarios para el montaje están incluidos para un montaje sin preocupaciones. Como el estante no se ensuciará fácilmente, es muy fácil de mantener. Y simplemente utiliza un paño húmedo para limpiar el estante impermeable cuando esté sucio.

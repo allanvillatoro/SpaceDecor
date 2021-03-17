@@ -1,0 +1,40 @@
+﻿@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+
+
+@if (HttpContextAccessor.HttpContext.Session.GetInt32("Admin") == 1)
+{
+
+<div class="container">
+    <h3 class="text-dark mt-5 mb-3">Centro de control</h3>
+    <hr />
+    <div class="row">
+
+        <div class="list-group col-lg-12 mt-5">
+            <a asp-area="" asp-controller="Admin" asp-action="Pedidos" class="list-group-item list-group-item-action">
+                Ver Pedidos
+            </a>
+            <a asp-area="" asp-controller="Admin" asp-action="Products" class="list-group-item list-group-item-action">Ver Productos</a>
+
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+else
+{
+    <h1>Ingrese session con una cuenta de administrador</h1>
+}
