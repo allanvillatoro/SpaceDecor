@@ -22,7 +22,10 @@ namespace ProyectoFinal.Models
         public int StockQ { get; set; }
         public string Thumbnail { get; set; }
 
-        public IFormFile image { get; set; }
+        //para subir
+        public IFormFile ThumbnailImage { get; set; }
+        public IEnumerable<IFormFile> Images { get; set; }
     }
+      
 }
    

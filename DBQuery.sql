@@ -8,7 +8,7 @@ CREATE TABLE Users (
 );
 
 CREATE TABLE Products(
-	idProducts int NOT NULL PRIMARY KEY IDENTITY(1,1),
+	idProducts int NOT NULL PRIMARY KEY,
 	ProductName varchar(200),
 	ProductDesc varchar(450),
 	Marca varchar(450),
