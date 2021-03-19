@@ -73,6 +73,7 @@ namespace ProyectoFinal.Models
         public int idImage { get; set; }
         public int idProducto { get; set; }
         public string ImageUrl { get; set; }
+        public string Nombre { get; set; }
     }
 
     public class CustomOrders

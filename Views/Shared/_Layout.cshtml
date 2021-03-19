@@ -18,23 +18,23 @@
 
         <nav class="navbar navbar-expand-lg navbarPer">
             <div class="container">
-                <a class="navbar-brand" asp-controller="Home" asp-action="Index">Navbar</a>
+                <a class="navbar-brand" asp-controller="Home" asp-action="Index"><img src="~/img/logo.jpg" width="150"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Catalogo" asp-action="Index">Catálogo</a>
+                            <a class="nav-link" style="color: sienna" asp-area="" asp-controller="Catalogo" asp-action="Index">Catálogo</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Personalizado" asp-action="Index">A medida</a>
+                            <a class="nav-link" style="color: sienna" asp-area="" asp-controller="Personalizado" asp-action="Index">A medida</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Conocenos" asp-action="Index">Conócenos</a>
+                            <a class="nav-link" style="color: sienna" asp-area="" asp-controller="Conocenos" asp-action="Index">Conócenos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Contactos" asp-action="Create">Contáctanos</a>
+                            <a class="nav-link" style="color: sienna" asp-area="" asp-controller="Contactos" asp-action="Create">Contáctanos</a>
                         </li>
                     </ul>
 
@@ -43,19 +43,19 @@
 
                         <li class="nav-item">
                             <a class="navbar-brand" href="https://www.facebook.com/SpaceDecorHN">
-                                <img src="~/img/insta-icon.png" alt="Instagram" width="30">
+                                <img src="~/img/insta.svg" alt="Instagram" width="30">
                             </a>
                         </li>
 
                         <li class="nav-item">
                             <a class="navbar-brand" href="https://www.instagram.com/spacedecoroficial/">
-                                <img src="~/img/facebook-icon.png" alt="Facebook" width="30">
+                                <img src="~/img/facebook.svg" alt="Facebook" width="30">
                             </a>
                         </li>
 
                         <li class="nav-item" asp-area="" asp-controller="Catalogo" asp-action="Carrito">
                             <a class="navbar-brand" href="#">
-                                <img src="https://i.pinimg.com/564x/40/85/e4/4085e4f82da47678a6c140d356463b30.jpg" alt="Facebook" width="30">
+                                <img src="~/img/cart.svg" alt="Facebook" width="30">
                             </a>
                         </li>
 
@@ -64,7 +64,7 @@
                             if (string.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Id")))
                             {
                                 <li class="navbar-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Login" asp-action="Login">Login</a>
+                                    <a class="nav-link" style="color: sienna"  asp-area="" asp-controller="Login" asp-action="Login">Login</a>
                                 </li>
 
                             }

@@ -458,7 +458,6 @@ C:\Users\Rachel\ProyectoGeneral\obj\Debug\netcoreapp3.1\ProyectoFinal.dll
 C:\Users\Rachel\ProyectoGeneral\obj\Debug\netcoreapp3.1\ProyectoFinal.pdb
 C:\Users\Rachel\ProyectoGeneral\obj\Debug\netcoreapp3.1\ProyectoFinal.genruntimeconfig.cache
 C:\Users\Andre\Documents\ProyectoFinal\obj\Debug\netcoreapp3.1\Razor\Views\Conocenos\Index.cshtml.g.cs
-C:\Users\Andre\Documents\ProyectoFinal\obj\Debug\netcoreapp3.1\Razor\Views\AdminController\Index.cshtml.g.cs
 C:\Users\Andre\Documents\ProyectoFinal\obj\Debug\netcoreapp3.1\Razor\Views\Admin\Index.cshtml.g.cs
 C:\Users\Andre\Documents\ProyectoFinal\obj\Debug\netcoreapp3.1\Razor\Views\Admin\Pedidos.cshtml.g.cs
 C:\Users\Andre\Documents\ProyectoFinal\obj\Debug\netcoreapp3.1\Razor\Views\Admin\Products.cshtml.g.cs
@@ -475,3 +474,6 @@ C:\Users\Andre\Documents\ProyectoFinal\bin\Debug\netcoreapp3.1\Microsoft.Extensi
 C:\Users\Andre\Documents\ProyectoFinal\bin\Debug\netcoreapp3.1\Microsoft.Extensions.FileSystemGlobbing.dll
 C:\Users\Andre\Documents\ProyectoFinal\bin\Debug\netcoreapp3.1\System.Text.Json.dll
 C:\Users\Andre\Documents\ProyectoFinal\bin\Debug\netcoreapp3.1\Microsoft.WindowsAzure.Configuration.dll
+C:\Users\Andre\Documents\ProyectoFinal\obj\Debug\netcoreapp3.1\Razor\Views\Catalogo\Carrito.cshtml.g.cs
+C:\Users\Andre\Documents\ProyectoFinal\obj\Debug\netcoreapp3.1\Razor\Views\Catalogo\DeleteCarrito.cshtml.g.cs
+C:\Users\Andre\Documents\ProyectoFinal\obj\Debug\netcoreapp3.1\Razor\Views\Admin\deleteProduct.cshtml.g.cs

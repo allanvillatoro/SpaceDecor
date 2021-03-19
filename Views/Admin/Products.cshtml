@@ -12,10 +12,22 @@
 </head>
 <body>
 
-<h3 class="text-dark mt-3">Productos</h3>
-<p>
-    <a asp-action="CreateProduct">Create New</a>
-</p>
+    @{
+        if (ViewBag.success == 1)
+        {
+            <div class="alert alert-success mt-4 dispose" role="alert">
+               Se agregó un producto correctamente
+            </div>
+
+            TempData.Remove("success");
+        }
+    }
+
+
+    <h3 class="text-dark mt-3">Productos</h3>
+    <p>
+        <a class="mt-2" asp-action="CreateProduct">Create New</a>
+    </p>
 
     <div class="container">
         <div class="row">
@@ -46,7 +58,7 @@
                         <th>
                             @Html.DisplayNameFor(model => model.StockQ)
                         </th>
-                        
+
                         <th></th>
                     </tr>
                 </thead>
@@ -74,15 +86,15 @@
                             </td>
                             <td>
                                 @Html.DisplayFor(modelItem => item.Materials)
-                            </td>                   
+                            </td>
                             <td>
                                 @Html.DisplayFor(modelItem => item.StockQ)
                             </td>
-                           
+
                             <td>
-                                @Html.ActionLink("Editas", "Edit", new { id= item.idProducts })
-                                @Html.ActionLink("Detalles", "Details", new { id = item.idProducts }) 
-                                @Html.ActionLink("Eliminar ", "Delete", new { id = item.idProducts })
+                                @Html.ActionLink("Editar", "Edit", new { id = item.idProducts })
+                                @Html.ActionLink("Detalles", "Details", new { id = item.idProducts })
+                                @Html.ActionLink("Eliminar ", "DeleteProduct", new { id = item.idProducts })
                             </td>
                         </tr>
                     }
@@ -90,7 +102,7 @@
             </table>
         </div>
     </div>
-         
+
 </body>
 </html>
 

@@ -24,7 +24,8 @@ CREATE TABLE Products(
 CREATE TABLE ProductsImg(
 	idImage int PRIMARY KEY IDENTITY(1,1),
 	idProducto int,
-	ImageUrl varchar(300)
+	ImageUrl varchar(300),
+	Nombre varchar(300)
 
 );
 
