@@ -1,4 +1,172 @@
-﻿@{
-    ViewData["Title"] = "Home";
+﻿@model ProyectoFinal.Models.Contacto
+
+@{
+    ViewData["Title"] = "Space Decor";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+
+
+
+<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+<link rel="stylesheet" href="~/css/site.css" />
+<link rel="stylesheet" href="~/css/general.css" />
+
+
+
+
+
+<div class="jumbotron text-center">
+    <h1 style="color: sienna;">Space Decor</h1>
+    <p style="color: sienna;">Decorando Tu Espacio</p>
+    
+</div>
+
+<!-- Container (Portfolio Section) -->
+<div id="portfolio" class="container-fluid text-center bg-grey">
+    <h2>Lo Más Vendido</h2><br>
+    <div class="row text-center slideanim">
+        <div class="col-sm-4">
+            <div class="thumbnail">
+                <img src="~/img/6.PNG" alt="Organizador de Escritorio" width="400" height="300">
+                <p style="color: sienna;"><strong>Organizador para Escritorio</strong></p>
+                <p>Space Decor</p>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="thumbnail">
+                <img src="~/img/EnlaSala.JPG" alt="Mesa de Centro" width="400" height="300">
+                <p style="color: sienna;"><strong>Mesa de Centro</strong></p>
+                <p>Space Decor</p>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="thumbnail">
+                <img src="~/img/Lugar.JPG" alt="Estantería para Oficina" width="400" height="300">
+                <p style="color: sienna;"><strong>Estantería para Oficina</strong></p>
+                <p>Space Decor</p>
+            </div>
+        </div>
+    </div><br>
+
+
+
+    <div id="tour" class="bg-1">
+        <h2>Lo Más Nuevo</h2><br>
+        <div class="row text-center">
+            <div class="col-sm-4">
+                <div class="thumbnail">
+                    <img src="~/img/Cama.JPG" alt="Mesa para Portátil" width="400" height="300">
+                    <p style="color: sienna;"><strong>Mesa para Portátil</strong></p>
+                    <p>Space Decor</p>
+                    <a class="btn" asp-controller="Catalogo" asp-action="Index">Ir al Catálogo</a>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="thumbnail">
+                    <img src="~/img/Principal.JPG" alt="Mesa Auxiliar (Nogal)" width="400" height="300">
+                    <p style="color: sienna;"><strong>Mesa Auxiliar (Nogal)</strong></p>
+                    <p>Space Decor</p>
+                    <a class="btn"  asp-controller="Catalogo" asp-action="Index">Ir al Catálogo</a>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="thumbnail">
+                    <img src="~/img/EN-cama.JPG" alt="Mesa para Portátil" width="400" height="300">
+                    <p style="color: sienna;"><strong>Mesa para Portátil</strong></p>
+                    <p>Space Decor</p>
+                    <a class="btn" asp-controller="Catalogo" asp-action="Index">Ir al Catálogo</a>
+                </div>
+            </div>
+        </div>
+    </div><br>
+
+
+
+    <hr />
+
+    <!-- Container (Contact Section) -->
+    <div id="contact" class="container-fluid bg-grey">
+        <h2 class="text-center">CONTÁCTANOS</h2>
+        <div class="row">
+            <div class="col-sm-5">
+                <img src="~/img/EnlaSala.JPG" alt="Mesa Auxiliar (Nogal)" width="300" height="200">
+            </div>
+            <div class="col-sm-7 slideanim">
+                <div class="row">
+                    <div class="col-sm-6 form-group">
+                        <input asp-for="nombre" type="text" class="form-control" placeholder="Nombre" id="exampleFormControlInput1" />
+                        <span asp-validation-for="nombre" class="text-danger"></span>
+                    </div>
+                    <div class="col-sm-6 form-group">
+                        <input asp-for="correo" type="email" class="form-control"  name="email" id="exampleFormControlInput1" placeholder="name@example.com" />
+                        <span asp-validation-for="correo" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <textarea  asp-for="descripcion" class="form-control" placeholder="Comment" id="exampleFormControlTextarea1" rows="4"></textarea>
+                <span asp-validation-for="descripcion" class="text-danger"></span>
+
+                <div class="row">
+                    <div class="col-sm-12 form-group" style="margin-top:15px;">
+                        <input type="submit" value="Enviar" class="btn btncolor" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <footer class="container-fluid text-center">
+        <a href="#myPage" title="To Top">
+            <span class="glyphicon glyphicon-chevron-up"></span>
+        </a>
+        <p>Space Decor <a href="https://www.facebook.com/SpaceDecorHN" title="Visit Space Decor">facebook.com/SpaceDecorHN</a></p>
+    </footer>
+
+    <script>
+        $(document).ready(function () {
+            // Add smooth scrolling to all links in navbar + footer link
+            $(".navbar a, footer a[href='#myPage']").on('click', function (event) {
+                // Make sure this.hash has a value before overriding default behavior
+                if (this.hash !== "") {
+                    // Prevent default anchor click behavior
+                    event.preventDefault();
+
+                    // Store hash
+                    var hash = this.hash;
+
+                    // Using jQuery's animate() method to add smooth page scroll
+                    // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+                    $('html, body').animate({
+                        scrollTop: $(hash).offset().top
+                    }, 900, function () {
+
+                        // Add hash (#) to URL when done scrolling (default click behavior)
+                        window.location.hash = hash;
+                    });
+                } // End if
+            });
+
+            $(window).scroll(function () {
+                $(".slideanim").each(function () {
+                    var pos = $(this).offset().top;
+
+                    var winTop = $(window).scrollTop();
+                    if (pos < winTop + 600) {
+                        $(this).addClass("slide");
+                    }
+                });
+            });
+        })
+    </script>
+
+
+
 
