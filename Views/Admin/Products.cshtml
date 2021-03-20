@@ -13,13 +13,34 @@
 <body>
 
     @{
+
+        
+        if (ViewBag.Delete == 1)
+                {
+                    <div class="alert alert-danger mt-4 dispose" id="success-alert" role="alert">
+                        Se eliminó un producto correctamente
+                    </div>
+
+                    TempData.Remove("successDelete");
+                }
+
+
         if (ViewBag.success == 1)
         {
-            <div class="alert alert-success mt-4 dispose" role="alert">
-               Se agregó un producto correctamente
+            <div class="alert alert-success mt-4 dispose" id="success-alert" role="alert">
+                Se agregó un producto correctamente
             </div>
 
             TempData.Remove("success");
+        }
+
+        if (ViewBag.successEdit == 1)
+        {
+            <div class="alert alert-success mt-4 dispose" id="success-alert" role="alert">
+                Se agregó un producto correctamente
+            </div>
+
+            TempData.Remove("successEdit");
         }
     }
 
@@ -92,8 +113,8 @@
                             </td>
 
                             <td>
-                                @Html.ActionLink("Editar", "Edit", new { id = item.idProducts })
-                                @Html.ActionLink("Detalles", "Details", new { id = item.idProducts })
+                                @Html.ActionLink("Editar", "EditProduct", new { id = item.idProducts }) |
+                                @Html.ActionLink("Detalles", "Details", new { id = item.idProducts }) |
                                 @Html.ActionLink("Eliminar ", "DeleteProduct", new { id = item.idProducts })
                             </td>
                         </tr>

@@ -496,3 +496,4 @@ C:\Users\Rachel\ProyectoGeneral\obj\Debug\netcoreapp3.1\Razor\Views\Admin\Pedido
 C:\Users\Rachel\ProyectoGeneral\obj\Debug\netcoreapp3.1\Razor\Views\Admin\Products.cshtml.g.cs
 C:\Users\Rachel\ProyectoGeneral\obj\Debug\netcoreapp3.1\Razor\Views\Catalogo\Carrito.cshtml.g.cs
 C:\Users\Rachel\ProyectoGeneral\obj\Debug\netcoreapp3.1\Razor\Views\Catalogo\DeleteCarrito.cshtml.g.cs
+C:\Users\Andre\Documents\ProyectoFinal\obj\Debug\netcoreapp3.1\Razor\Views\Admin\EditProduct.cshtml.g.cs

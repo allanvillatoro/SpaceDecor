@@ -58,7 +58,7 @@ namespace ProyectoFinal.Controllers
             }
             else
             {
-                ViewBag.f = true;
+                ViewBag.f = 1;
                 return View();
             }
             

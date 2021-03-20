@@ -13,13 +13,14 @@ namespace ProyectoFinal.Controllers
 {
     public class AdminController: Controller
     {
+        conexionAzure Azure = new conexionAzure();
         DatabaseContext db = new DatabaseContext();
         public IActionResult Index()
         {
             return View();
         }
 
-
+        //listar
         public IActionResult Pedidos()
         {
             List<Order> lista = new List<Order>();
@@ -35,8 +36,6 @@ namespace ProyectoFinal.Controllers
 
             return View(lista);
         }
-
-
         public IActionResult Products()
         {
             List<Product> lista = new List<Product>();
@@ -60,12 +59,13 @@ namespace ProyectoFinal.Controllers
 
             //viewbags
             ViewBag.success = TempData["success"];
-   
+            ViewBag.successEdit = TempData["successEdit"];
+            ViewBag.Delete = TempData["successDelete"];
 
             return View(lista);
         }
 
-
+        //Crear productos
         public IActionResult CreateProduct()
         {
             return View();
@@ -157,11 +157,11 @@ namespace ProyectoFinal.Controllers
         public void SaveImages(IFormFile fileSelect, int id)
         {
 
-            string url = "https://spacedecor2021.blob.core.windows.net/productsimage/";
+            string url = Azure.url;
             string urlFinal;
 
             //Subir a Azure
-            string conn = "DefaultEndpointsProtocol=https;AccountName=spacedecor2021;AccountKey=IDhWTZdewBV6W9QOfYPE5A3HwGlWNCQN/5jz1mzaCweXllq1fabsA4PFi0Meg4/VYh2mGEQSfMnvSXyUG8BKzw==;EndpointSuffix=core.windows.net";
+            string conn = Azure.conn;
             string fileName;
 
             BlobServiceClient blobServiceClient = new BlobServiceClient(conn);
@@ -217,11 +217,13 @@ namespace ProyectoFinal.Controllers
         }
         public string SaveThumbnail(IFormFile fileSelect)
         {
-            string conn = "DefaultEndpointsProtocol=https;AccountName=spacedecor2021;AccountKey=IDhWTZdewBV6W9QOfYPE5A3HwGlWNCQN/5jz1mzaCweXllq1fabsA4PFi0Meg4/VYh2mGEQSfMnvSXyUG8BKzw==;EndpointSuffix=core.windows.net";
+
+            //Subir a Azure
+            string url = Azure.url;
+            string conn = Azure.conn;
 
             BlobServiceClient blobServiceClient = new BlobServiceClient(conn);
             BlobContainerClient containerClient = blobServiceClient.GetBlobContainerClient("productsimage");
-            string url = "https://spacedecor2021.blob.core.windows.net/productsimage/";
 
             if (fileSelect != null)
             {
@@ -240,7 +242,10 @@ namespace ProyectoFinal.Controllers
             return "Error";
         }
 
-        public IActionResult DeleteProduct(int id)
+
+        //buscar producto por id
+
+        public Product buscarProducto(int id)
         {
             Product productDetails = new Product();
             using (DatabaseContext db = new DatabaseContext())
@@ -249,7 +254,7 @@ namespace ProyectoFinal.Controllers
                 Products product = db.Products.Find(id);
 
                 productDetails.idProducts = product.idProducts;
-                productDetails.ProductName = product.ProductDesc;
+                productDetails.ProductName = product.ProductName;
                 productDetails.ProductDesc = product.ProductDesc;
                 productDetails.Marca = product.Marca;
                 productDetails.Price = product.Price;
@@ -258,15 +263,26 @@ namespace ProyectoFinal.Controllers
                 productDetails.Materials = product.Materials;
                 productDetails.ProductType = product.ProductType;
                 productDetails.StockQ = product.StockQ;
- 
 
-                return View(productDetails);
-            }  
+
+                return productDetails;
+            }
         }
 
 
+
+        //Eliminar producto
+        public IActionResult DeleteProduct(int id)
+        {
+            Product productDetails = new Product();
+
+            productDetails = buscarProducto(id);
+
+            return View(productDetails);
+        }
+
         [HttpPost, ActionName("deleteProduct")]
-        public IActionResult DleteProductConfirm(int id)
+        public IActionResult DeleteProductConfirm(int id)
         {
             using(DatabaseContext db = new DatabaseContext())
             {
@@ -289,14 +305,10 @@ namespace ProyectoFinal.Controllers
 
                 
                 db.SaveChanges();
-               
+                TempData["successDelete"] = 1;    
             }
-
-
-            return View();
+            return RedirectToAction("Products");
         }
-
-
         public void eliminarImg(int id)
         {
             //Subir a Azure
@@ -321,6 +333,72 @@ namespace ProyectoFinal.Controllers
             }
 
         }
+
+        //Editar
+        public IActionResult EditProduct(int id)
+        {
+            Product productDetails = new Product();
+            productDetails = buscarProducto(id);
+            return View(productDetails);
+        }
+
+        [HttpPost]
+        public IActionResult EditProduct(Product product)
+        {
+            using (DatabaseContext db =  new DatabaseContext())
+            {
+                Products produ = db.Products.Find(product.idProducts);
+                produ.idProducts = product.idProducts;
+                produ.ProductName = product.ProductName;
+                produ.ProductDesc = product.ProductDesc;
+                produ.Marca = product.Marca;
+                produ.Price = product.Price;
+                produ.Color = product.Color;
+                produ.Dimensions = product.Dimensions;
+                produ.Materials = product.Materials;
+                produ.ProductType = product.ProductType;
+                produ.StockQ = product.StockQ;
+
+                int filasAfectadas = db.SaveChanges();
+
+                var name = produ.Thumbnail.Split('/');
+                string FileName = name[4];
+
+                UpdateThumbnail(product.ThumbnailImage, FileName);
+
+                if (filasAfectadas > 0)
+                {
+                    TempData["successEdit"] = 1;
+                }
+                else
+                {
+                    Console.WriteLine("Hubo un error");
+                    return View(product);
+                }
+            }
+            return RedirectToAction("Products");
+        }
+        public string UpdateThumbnail(IFormFile fileSelect,string fileName)
+        {
+
+            //Subir a Azure
+            string url = Azure.url;
+            string conn = Azure.conn;
+
+            BlobServiceClient blobServiceClient = new BlobServiceClient(conn);
+            BlobContainerClient containerClient = blobServiceClient.GetBlobContainerClient("productsimage");
+
+            if (fileSelect != null)
+            {
+                using (var fileStream = fileSelect.OpenReadStream())
+                {
+                    BlobClient blobClient = containerClient.GetBlobClient(fileName);
+                    blobClient.Upload(fileStream, true);
+                }
+            }
+            return "Error";
+        }
+
 
     }
 }
