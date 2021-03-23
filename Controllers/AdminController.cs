@@ -39,6 +39,7 @@ namespace ProyectoFinal.Controllers
         public IActionResult Products()
         {
             List<Product> lista = new List<Product>();
+           
             var consulta = from s in db.Products
                            select new Product
                            {
@@ -56,7 +57,7 @@ namespace ProyectoFinal.Controllers
                            };
 
             lista = consulta.ToList();
-
+         
             //viewbags
             ViewBag.success = TempData["success"];
             ViewBag.successEdit = TempData["successEdit"];

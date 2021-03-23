@@ -7,13 +7,13 @@ using System.Linq;
 using System.Reflection.Metadata.Ecma335;
 using System.Threading.Tasks;
 
+
 namespace ProyectoFinal.Controllers
 {
-    public class CatalogoController : Controller
+    public class AMedidaController : Controller
     {
         public IActionResult Index()
         {
-
             List<Product> lista = new List<Product>();
             using (DatabaseContext db = new DatabaseContext())
             {
@@ -30,8 +30,8 @@ namespace ProyectoFinal.Controllers
                                    Materials = s.Materials,
                                    ProductType = s.ProductType,
                                    StockQ = s.StockQ,
-                                   Thumbnail=s.Thumbnail
-                                  
+                                   Thumbnail = s.Thumbnail
+
                                };
 
                 lista = consulta.ToList();
@@ -40,11 +40,11 @@ namespace ProyectoFinal.Controllers
             return View(lista);
         }
 
-
         [HttpGet]
-        public IActionResult Details(int id)
+        public IActionResult Edit(int id)
         {
             List<Product> lista = new List<Product>();
+            List<Product> lista2 = new List<Product>();
             using (DatabaseContext db = new DatabaseContext())
             {
                 var consulta = from s in db.Products
@@ -69,6 +69,7 @@ namespace ProyectoFinal.Controllers
             }
 
             List<Images> listaimage = new List<Images>();
+            List<Images> listaimage2 = new List<Images>();
             using (DatabaseContext db = new DatabaseContext())
             {
                 var consulta = from s in db.ProductsImg
@@ -77,72 +78,45 @@ namespace ProyectoFinal.Controllers
                                {
                                    idProduct = s.idProducto,
                                    url = s.ImageUrl
-                                        
+
                                };
 
                 listaimage = consulta.ToList();
             }
 
             ViewModels listas = new ViewModels();
-            listas.lstproducts = lista;
-            listas.lstimages = listaimage;
-
-            return View(listas);
-        }
-
-        
-
-        public IActionResult Carrito(int id)
-        {
-            List<Product> lista = new List<Product>();
-            List<Product> lista2 = new List<Product>();
-            using (DatabaseContext db = new DatabaseContext())
-            {
-                var consulta = from s in db.Products
-                               where s.idProducts == id
-                               select new Product
-                               {
-                                   idProducts = s.idProducts,
-                                   ProductName = s.ProductName,
-                                   Price = s.Price,
-
-                               };
-
-                lista = consulta.ToList();
-            }
             lista2 = lista.ToList();
-            ViewModels listas = new ViewModels();
+            listaimage2 = listaimage.ToList();
             listas.lstproducts = lista2;
+            listas.lstimages = listaimage2;
+           
 
 
             return View(listas);
         }
 
-        public IActionResult DeleteCarrito(int id)
+        [HttpPost]
+        public IActionResult EditPost(Product product)
         {
+
+            
             List<Product> lista = new List<Product>();
             List<Product> lista2 = new List<Product>();
+           
             using (DatabaseContext db = new DatabaseContext())
             {
-                var consulta = from s in db.Products
-                               where s.idProducts == id
-                               select new Product
-                               {
-                                   idProducts = s.idProducts,
-                                   ProductName = s.ProductName,
-                                   Price = s.Price,
+                Products produ = db.Products.Find(product.idProducts);
+                produ.ProductName = product.ProductName;
+                produ.Color = product.Color;
+                produ.Dimensions = product.Dimensions;
+                produ.Materials = product.Materials;
 
-                               };
+                db.SaveChanges();
 
-                lista = consulta.ToList();
+                
+            return RedirectToAction("Edit");
             }
-            lista2 = lista.ToList();
-            lista2.Clear(); 
-            ViewModels listas = new ViewModels();
-            listas.lstproducts = lista2;
-
-
-            return View(listas);
+            
         }
 
         
@@ -150,13 +124,4 @@ namespace ProyectoFinal.Controllers
 
 
     }
-
-
-
-
-        
-
-    }
-
-   
-
+}
