@@ -39,14 +39,13 @@ CREATE TABLE Orders(
 CREATE TABLE CustomOrders(
 	idOrder int NOT NULL PRIMARY KEY IDENTITY(1,1),
 	idClient int,
+	idproduct int,
 	ProductDesc varchar(450),
 	Price float,
 	Color varchar(50),
 	Dimensions varchar(60),
-	WoodType varchar(60),
-	ProductType varchar(60),
+	Materials varchar(60),
 	Quantity int,
-	StockQ int,
 	
 );
 

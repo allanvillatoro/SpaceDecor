@@ -30,7 +30,7 @@ namespace ProyectoFinal.Controllers
                                id_order = s.idOrder,
                                id_product = s.idProduct,
                                id_cliente = s.idClient,
-                               date = s.DateOrder
+                               
                            };
             lista = consulta.ToList();
 

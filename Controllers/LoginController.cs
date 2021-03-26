@@ -43,7 +43,7 @@ namespace ProyectoFinal.Controllers
             {
                 foreach (var item in lista)
                 {
-                    if (string.IsNullOrEmpty(HttpContext.Session.GetString("id")))
+                    if (string.IsNullOrEmpty(HttpContext.Session.GetString("Id")))
                     {
                         HttpContext.Session.SetInt32("Id", item.id);
                         HttpContext.Session.SetString("Name", item.FirstName);

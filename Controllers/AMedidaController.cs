@@ -37,10 +37,11 @@ namespace ProyectoFinal.Controllers
                 lista = consulta.ToList();
             }
 
+            ViewBag.pedido = TempData["pedido"];
             return View(lista);
         }
 
-        [HttpGet]
+  
         public IActionResult Edit(int id)
         {
             List<Product> lista = new List<Product>();
@@ -53,7 +54,6 @@ namespace ProyectoFinal.Controllers
                                {
                                    idProducts = s.idProducts,
                                    ProductName = s.ProductName,
-                                   ProductDesc = s.ProductDesc,
                                    Marca = s.Marca,
                                    Price = s.Price,
                                    Color = s.Color,
@@ -84,37 +84,39 @@ namespace ProyectoFinal.Controllers
                 listaimage = consulta.ToList();
             }
 
-            ViewModels listas = new ViewModels();
-            lista2 = lista.ToList();
+            Product pr = new Product();
             listaimage2 = listaimage.ToList();
-            listas.lstproducts = lista2;
-            listas.lstimages = listaimage2;
+            pr = lista[0];
+            pr.lstimages = listaimage2;
            
 
 
-            return View(listas);
+            return View(pr);
         }
 
         [HttpPost]
-        public IActionResult EditPost(Product product)
+        public IActionResult CreateOrder(Product product)
         {
-
-            
-            List<Product> lista = new List<Product>();
-            List<Product> lista2 = new List<Product>();
            
             using (DatabaseContext db = new DatabaseContext())
             {
-                Products produ = db.Products.Find(product.idProducts);
-                produ.ProductName = product.ProductName;
+                CustomOrders produ = new CustomOrders();
+                produ.idproduct = product.idProducts;
+                produ.idClient = (int)HttpContext.Session.GetInt32("Id");
+                produ.ProductDesc = product.ProductDesc;
                 produ.Color = product.Color;
                 produ.Dimensions = product.Dimensions;
                 produ.Materials = product.Materials;
 
-                db.SaveChanges();
+                db.CustomOrders.Add(produ);
 
-                
-            return RedirectToAction("Edit");
+                int filasAfectadas = db.SaveChanges();
+                if (filasAfectadas > 0)
+                {
+                    TempData["pedido"] = 1;
+                }
+                   
+                return RedirectToAction("Index");
             }
             
         }

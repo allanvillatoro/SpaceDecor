@@ -18,10 +18,10 @@ namespace ProyectoFinal.Models
         public DbSet<ProductsImg> ProductsImg { get; set;}
 
         //conexión Rachel
-        public string connectionString = @"Data Source = (LocalDB)\MSSQLLocalDB;Initial Catalog = SpaceDecorDB; Integrated Security = True";
+        //public string connectionString = @"Data Source = (LocalDB)\MSSQLLocalDB;Initial Catalog = SpaceDecorDB; Integrated Security = True";
 
         //Conexion Andres
-        //public string connectionString = @"Data Source = localhost; Initial Catalog = SpaceDecor; Integrated Security=True;";
+        public string connectionString = @"Data Source = localhost; Initial Catalog = SpaceDecor; Integrated Security=True;";
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)=> options.UseSqlServer(connectionString);
 
@@ -85,11 +85,10 @@ namespace ProyectoFinal.Models
         public float Price { get; set; }
         public string Color { get; set; }
         public string Dimensions { get; set; }
-        public string WoodType { get; set; }
-        public string ProductType { get; set; }
+        public string Materials { get; set; }
         public int Quantity { get; set; }
-        public int StockQ { get; set; }
-        public string ImgUrl { get; set; }
+        public int idproduct { get; set; }
+
 
     }
 

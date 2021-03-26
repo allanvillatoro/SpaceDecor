@@ -1,11 +1,25 @@
-﻿@model IEnumerable<ProyectoFinal.Models.Product>
+﻿@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+
+
+@model IEnumerable<ProyectoFinal.Models.Product>
 <!--Index catálogo-->
+
+
+@if (ViewBag.pedido == 1)
+{
+    <div class="alert alert-success mt-3" id="success-alert" role="alert">
+        Tu pedido se ha realizado con éxito
+    </div>
+
+}
+
 
 <div class="container mt-5 mb-5">
     <div class="d-flex justify-content-center row">
         <div class="col-md-10">
 
-            <h2 class="mb-2">Nuestro Catálogo</h2>
+            <h2 class="mb-2">Pide tu artículo personalizado</h2>
             <hr />
 
             <!--Tarjeta de productos-->

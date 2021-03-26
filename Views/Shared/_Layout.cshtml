@@ -8,10 +8,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"]Space Decor</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-   
     <link rel="stylesheet" href="~/css/site.css" />
     <link rel="stylesheet" href="~/css/general.css" />
-   
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+
 </head>
 <body>
     <header>
@@ -64,7 +65,7 @@
                             if (string.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Id")))
                             {
                                 <li class="navbar-item">
-                                    <a class="nav-link" style="color: sienna"  asp-area="" asp-controller="Login" asp-action="Login">Login</a>
+                                    <a class="nav-link" style="color: sienna" asp-area="" asp-controller="Login" asp-action="Login">Login</a>
                                 </li>
 
                             }
@@ -106,7 +107,7 @@
             &copy; 2021 - ProyectoFinal - <a asp-area="" asp-controller="Home" asp-action="Privacy"></a>
         </div>
     </footer>
-
+    <script src="https://kit.fontawesome.com/e0eb77c072.js" crossorigin="anonymous"></script>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

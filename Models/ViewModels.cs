@@ -9,5 +9,7 @@ namespace ProyectoFinal.Models
     {
         public IEnumerable<Product> lstproducts { get; set; }
         public IEnumerable<Images> lstimages { get; set; }
+
+        public Product prt { get; set; }
     }
 }
