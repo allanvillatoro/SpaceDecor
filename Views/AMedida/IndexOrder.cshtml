@@ -1,0 +1,43 @@
+﻿@model ProyectoFinal.Models.ViewModels
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+
+
+@if (string.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Id")))
+{
+    <div class="alert alert-warning mt-4" role="alert">
+        Inicia Sesión!
+    </div>
+}
+else
+{
+
+    <div class="container-fluid px-sm-1 py-5">
+        <div class="row ">
+
+
+
+
+            @foreach (var item in Model.lstorders)
+            {
+                <div class="col-lg-5">
+                    <h2 class="h2"> @Html.DisplayFor(modelItem => item.ProductName)</h2>
+                    <h3 class="h2"> @Html.DisplayFor(modelItem => item.idproduct)</h3>
+                    <h3 class="h2"> @Html.DisplayFor(modelItem => item.Price)</h3>
+                    <hr />
+                </div>
+            }
+
+
+            <div class="form-group">
+                <a class="btn btncolor m-2" asp-controller="Home" asp-action="Index">Comprar</a>
+                <a class="btn btncolor m-2" asp-controller="Catalogo" asp-action="Index">Regresar al Catálogo</a>
+            </div>
+
+
+
+
+        </div>
+    </div>
+}
+}

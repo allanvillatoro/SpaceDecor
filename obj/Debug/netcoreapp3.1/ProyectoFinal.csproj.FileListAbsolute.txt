@@ -494,11 +494,10 @@ C:\Users\Rachel\ProyectoGeneral\obj\Debug\netcoreapp3.1\Razor\Views\Admin\delete
 C:\Users\Rachel\ProyectoGeneral\obj\Debug\netcoreapp3.1\Razor\Views\Admin\Index.cshtml.g.cs
 C:\Users\Rachel\ProyectoGeneral\obj\Debug\netcoreapp3.1\Razor\Views\Admin\Pedidos.cshtml.g.cs
 C:\Users\Rachel\ProyectoGeneral\obj\Debug\netcoreapp3.1\Razor\Views\Admin\Products.cshtml.g.cs
-C:\Users\Rachel\ProyectoGeneral\obj\Debug\netcoreapp3.1\Razor\Views\Catalogo\Carrito.cshtml.g.cs
-C:\Users\Rachel\ProyectoGeneral\obj\Debug\netcoreapp3.1\Razor\Views\Catalogo\DeleteCarrito.cshtml.g.cs
 C:\Users\Andre\Documents\ProyectoFinal\obj\Debug\netcoreapp3.1\Razor\Views\Admin\EditProduct.cshtml.g.cs
 C:\Users\Rachel\ProyectoGeneral\obj\Debug\netcoreapp3.1\Razor\Views\Admin\EditProduct.cshtml.g.cs
 C:\Users\Rachel\ProyectoGeneral\obj\Debug\netcoreapp3.1\Razor\Views\AMedida\Index.cshtml.g.cs
 C:\Users\Rachel\ProyectoGeneral\obj\Debug\netcoreapp3.1\Razor\Views\AMedida\Edit.cshtml.g.cs
 C:\Users\Andre\Documents\ProyectoFinal\obj\Debug\netcoreapp3.1\Razor\Views\AMedida\Edit.cshtml.g.cs
 C:\Users\Andre\Documents\ProyectoFinal\obj\Debug\netcoreapp3.1\Razor\Views\AMedida\Index.cshtml.g.cs
+C:\Users\Rachel\ProyectoGeneral\obj\Debug\netcoreapp3.1\Razor\Views\AMedida\IndexOrder.cshtml.g.cs

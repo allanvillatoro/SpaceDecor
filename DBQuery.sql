@@ -33,6 +33,8 @@ CREATE TABLE Orders(
 	idOrder int NOT NULL PRIMARY KEY IDENTITY(1,1),
 	idClient int,
 	idProduct int,
+       ProductName varchar(200),
+        Price float,
 	DateOrder date
 );
 
@@ -40,6 +42,7 @@ CREATE TABLE CustomOrders(
 	idOrder int NOT NULL PRIMARY KEY IDENTITY(1,1),
 	idClient int,
 	idproduct int,
+        ProductName varchar(200),
 	ProductDesc varchar(450),
 	Price float,
 	Color varchar(50),
@@ -49,6 +52,13 @@ CREATE TABLE CustomOrders(
 	
 );
 
+CREATE TABLE Contacto(
+       idContacto int NOT NULL PRIMARY KEY IDENTITY(1,1),
+       nombre  varchar(80),
+       correo  varchar(80),
+       descripcion varchar(450),
+       
+);
 
 INSERT INTO Users VALUES('Andrés', 'Díaz', 'andres@gmail.com', 'ad2001',1);
 

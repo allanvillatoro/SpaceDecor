@@ -6,7 +6,7 @@ namespace ProyectoFinal.Models
 {
     public class ConexionContacto
     {
-        public string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;Initial Catalog=ProyectoDB;Integrated Security=True";
+        public string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;Initial Catalog=SpaceDecorDB;Integrated Security=True";
 
 
         public int addContacto(Contacto cont)

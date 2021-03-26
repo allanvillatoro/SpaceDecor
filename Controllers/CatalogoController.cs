@@ -90,71 +90,8 @@ namespace ProyectoFinal.Controllers
             return View(listas);
         }
 
-        
 
-        public IActionResult Carrito(int id)
-        {
-            List<Product> lista = new List<Product>();
-            List<Product> lista2 = new List<Product>();
-            using (DatabaseContext db = new DatabaseContext())
-            {
-                var consulta = from s in db.Products
-                               where s.idProducts == id
-                               select new Product
-                               {
-                                   idProducts = s.idProducts,
-                                   ProductName = s.ProductName,
-                                   Price = s.Price,
-
-                               };
-
-                lista = consulta.ToList();
-            }
-            lista2 = lista.ToList();
-            ViewModels listas = new ViewModels();
-            listas.lstproducts = lista2;
-
-
-            return View(listas);
-        }
-
-        public IActionResult DeleteCarrito(int id)
-        {
-            List<Product> lista = new List<Product>();
-            List<Product> lista2 = new List<Product>();
-            using (DatabaseContext db = new DatabaseContext())
-            {
-                var consulta = from s in db.Products
-                               where s.idProducts == id
-                               select new Product
-                               {
-                                   idProducts = s.idProducts,
-                                   ProductName = s.ProductName,
-                                   Price = s.Price,
-
-                               };
-
-                lista = consulta.ToList();
-            }
-            lista2 = lista.ToList();
-            lista2.Clear(); 
-            ViewModels listas = new ViewModels();
-            listas.lstproducts = lista2;
-
-
-            return View(listas);
-        }
-
-        
-
-
-
-    }
-
-
-
-
-        
+    }   
 
     }
 

@@ -11,6 +11,7 @@
 }
 else
 {
+    
 
     <div class="container-fluid px-sm-1 py-5">
         <div class="row ">
@@ -57,9 +58,19 @@ else
                 <form asp-action="CreateOrder" enctype="multipart/form-data">
 
                     <div class="form-group col">
-                        <label asp-for="idProducts"class="control-label">Código del producto</label>
+                        <label asp-for="idProducts" class="control-label">Código del producto</label>
                         <input asp-for="idProducts" class="form-control" readonly />
                         <span asp-validation-for="idProducts" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col">
+                        <textarea asp-for="ProductName" class="form-control" readonly> </textarea>
+                        <span asp-validation-for="ProductName" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group col">
+                        <label asp-for="Price" class="control-label"></label>
+                        <input asp-for="Price" class="form-control" readonly />
+                        <span asp-validation-for="Price" class="text-danger"></span>
                     </div>
                     <div class="form-group col">
                         <label asp-for="Color" class="control-label"></label>
@@ -85,8 +96,13 @@ else
 
 
                     <div class="form-group">
+
                         <input type="submit" value="Ordenar" class="btn btncolor float-lg-right" />
+                      
+
                     </div>
+
+
                 </form>
 
             </div>

@@ -4,9 +4,22 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+
+
+<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+<link rel="stylesheet" href="~/css/site.css" />
+<link rel="stylesheet" href="~/css/general.css" />
+
+
+
 <h1 style="color:sienna; margin-top:50px;">Conócenos</h1>
 
-<div class="text-center">
+<div class="text-center slideanim">
     <div class="row" style="margin-top:100px; margin-bottom:30px;">
         <div class="col-lg-1"></div>
         <div class="col-lg-4 col-sm-12">
@@ -21,7 +34,7 @@
     </div>
 
     <div class="row" style="margin-top:100px; margin-bottom:30px;">
-        <div class="col-lg-7 col-sm-12">
+        <div class="col-lg-7 col-sm-12 slideanim">
             <h3 style="color:sienna; margin-top:22px"> Objetivo General</h3>
             <hr style="color:burlywood;" />
             <p style="color: sienna;font-size: 18px; ">
@@ -34,14 +47,14 @@
     </div>
 
     <div class="row" style="margin-top:100px; margin-bottom:30px;">
-        <div class="col-lg-6 col-sm-12">
+        <div class="col-lg-6 col-sm-12 slideanim">
             <h3 style="color:sienna; margin-top:22px"> Misión</h3>
             <hr style="color:burlywood;" />
             <p style="color: sienna;font-size: 18px; ">
                 Facilitar la decoración del hogar conectando al cliente con el mundo de la madera ofreciendo la opción más rápida y fácil.
             </p>
         </div>
-        <div class="col-lg-5 col-sm-12">
+        <div class="col-lg-5 col-sm-12 slideanim">
             <h3 style="color:sienna; margin-top:22px"> Visión</h3>
             <hr style="color:burlywood;" />
             <p style="color: sienna;font-size: 18px; ">
@@ -51,9 +64,9 @@
     </div>
 
     <div>
-        <div >
+        <div>
             <h3 style="color: burlywood;margin-top: 70px;font-weight: bold;font-size: 30px;"> Valores</h3>
-            <div  style="color: sienna;font-size: 18px;margin-bottom: 50px;" class="list-group" >
+            <div style="color: sienna;font-size: 18px;margin-bottom: 50px;" class="list-group slideanim">
                 <a class="list-group-item list-group-item-action" data-bs-toggle="list">Transparencia</a>
                 <a class="list-group-item list-group-item-action" data-bs-toggle="list">Honestidad</a>
                 <a class="list-group-item list-group-item-action" data-bs-toggle="list">Puntualidad en las entregas</a>
@@ -84,6 +97,44 @@
 
 
 </div>
+
+<script>
+    $(document).ready(function () {
+        // Add smooth scrolling to all links in navbar + footer link
+        $(".navbar a, footer a[href='#myPage']").on('click', function (event) {
+            // Make sure this.hash has a value before overriding default behavior
+            if (this.hash !== "") {
+                // Prevent default anchor click behavior
+                event.preventDefault();
+
+                // Store hash
+                var hash = this.hash;
+
+                // Using jQuery's animate() method to add smooth page scroll
+                // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+                $('html, body').animate({
+                    scrollTop: $(hash).offset().top
+                }, 900, function () {
+
+                    // Add hash (#) to URL when done scrolling (default click behavior)
+                    window.location.hash = hash;
+                });
+            } // End if
+        });
+
+        $(window).scroll(function () {
+            $(".slideanim").each(function () {
+                var pos = $(this).offset().top;
+
+                var winTop = $(window).scrollTop();
+                if (pos < winTop + 600) {
+                    $(this).addClass("slide");
+                }
+            });
+        });
+    })
+</script>
+
 
 
 

@@ -41,7 +41,7 @@ namespace ProyectoFinal.Controllers
             return View(lista);
         }
 
-  
+
         public IActionResult Edit(int id)
         {
             List<Product> lista = new List<Product>();
@@ -88,7 +88,7 @@ namespace ProyectoFinal.Controllers
             listaimage2 = listaimage.ToList();
             pr = lista[0];
             pr.lstimages = listaimage2;
-           
+
 
 
             return View(pr);
@@ -97,12 +97,14 @@ namespace ProyectoFinal.Controllers
         [HttpPost]
         public IActionResult CreateOrder(Product product)
         {
-           
+
             using (DatabaseContext db = new DatabaseContext())
             {
                 CustomOrders produ = new CustomOrders();
                 produ.idproduct = product.idProducts;
                 produ.idClient = (int)HttpContext.Session.GetInt32("Id");
+                produ.ProductName = product.ProductName;
+                produ.Price = product.Price;
                 produ.ProductDesc = product.ProductDesc;
                 produ.Color = product.Color;
                 produ.Dimensions = product.Dimensions;
@@ -115,15 +117,46 @@ namespace ProyectoFinal.Controllers
                 {
                     TempData["pedido"] = 1;
                 }
-                   
-                return RedirectToAction("Index");
+
+                return RedirectToAction("IndexOrder");
             }
-            
+
         }
 
-        
+        public IActionResult IndexOrder(int id)
+        {
+            List<CustomOrders> lista = new List<CustomOrders>();
+            using (DatabaseContext db = new DatabaseContext())
+            {
+                var consulta = from s in db.CustomOrders
+                               where s.idClient == (int)HttpContext.Session.GetInt32("Id")
+                               select new CustomOrders
+                               {
+                                   idproduct = s.idproduct,
+                                   ProductName = s.ProductName,
+                                   Price = s.Price,
+
+                               };
+
+                lista = consulta.ToList();
+            }
+
+
+            ViewModels listas = new ViewModels();
+            listas.lstorders = lista;
+
+
+            //ViewBag.pedido = TempData["pedido"];
+            return View(listas);
+        }
+
+
+    }
+
+
+
 
 
 
     }
-}
+
